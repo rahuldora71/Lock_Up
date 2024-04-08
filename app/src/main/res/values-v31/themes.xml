@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.LockUp" parent="Base.Theme.LockUp">
+        <!-- Transparent system bars for edge-to-edge. -->
+<!--        <item name="android:windowIsTranslucent">true</item>-->
+<!--        <item name="android:windowSplashScreenAnimationDuration">1</item>-->
+
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="Base.Theme.LockUp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. --><!--
+        <item name="android:windowIsTranslucent">true</item>
+
+        <item name="android:windowSplashScreenAnimationDuration">1</item>-->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+</resources>
