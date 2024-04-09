@@ -1,5 +1,6 @@
 package com.example.lockup;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar;
     private static final int OVERLAY_PERMISSION_REQUEST_CODE = 100;
 
+
+
+
     BroadcastForServiceStart broadcast=new BroadcastForServiceStart();
 
 
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PermissionManager.requestPermissions(this);
 
         //Code for navigation drawer start
 
@@ -290,6 +295,13 @@ progressBar.setVisibility(View.GONE);
         });
 
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        PermissionManager.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
+    }
+
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
