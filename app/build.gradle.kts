@@ -5,7 +5,9 @@ plugins {
 android {
     namespace = "com.example.lockup"
     compileSdk = 34
-
+ buildFeatures{
+     viewBinding=true;
+ }
     defaultConfig {
         applicationId = "com.example.lockup"
         minSdk = 24

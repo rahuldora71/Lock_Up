@@ -3,6 +3,7 @@ package com.example.lockup.services;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -15,6 +16,7 @@ import android.util.Log;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.example.lockup.MainActivity;
 import com.example.lockup.R;
 import com.example.lockup.receivers.MainBroadcast;
 
@@ -54,11 +56,11 @@ public class ServiceBroadcastReceiver extends Service {
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         Notification notification;
         final String CHANNEL_ID = "Push_noti";
-//        final int REQUEST_CODE = 90;
+        final int REQUEST_CODE = 90;
 
-       /* Intent iNotify=new Intent(this, MainActivity.class);
+        Intent iNotify=new Intent(this, MainActivity.class);
         iNotify.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pi=PendingIntent.getActivity(this,REQUEST_CODE,iNotify,PendingIntent.FLAG_IMMUTABLE);*/
+        PendingIntent pi=PendingIntent.getActivity(this,REQUEST_CODE,iNotify,PendingIntent.FLAG_IMMUTABLE);
 
         CharSequence msg = "Running in the background";
         CharSequence title = "App Locker";
@@ -76,7 +78,7 @@ public class ServiceBroadcastReceiver extends Service {
                         .setChannelId(CHANNEL_ID)
                         .setSmallIcon(R.drawable.baseline_lock_24)
 
-//                        .setContentIntent(pi)
+                        .setContentIntent(pi)
 //                    .setLargeIcon(((BitmapDrawable)ResourcesCompat.getDrawable(getResources(),R.drawable.database,null)).getBitmap())
                         .setSubText(msg)
                         .setContentTitle(title)
@@ -87,7 +89,7 @@ public class ServiceBroadcastReceiver extends Service {
             } else {
                 notification = new Notification.Builder(this)
                         .setSmallIcon(R.drawable.baseline_lock_24)
-//                        .setContentIntent(pi)
+                        .setContentIntent(pi)
                         .setSubText(msg)
 //                    .setLargeIcon(((BitmapDrawable)ResourcesCompat.getDrawable(getResources(),R.drawable.database,null)).getBitmap())
                         .setContentTitle(title)

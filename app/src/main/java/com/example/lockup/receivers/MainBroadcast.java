@@ -12,6 +12,9 @@ public class MainBroadcast extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        String action = intent.getAction();
+        Log.d("ServiceBroadcastReceiver", "Received intent: " + action);
+
         Log.d(TAG, "onReceive: Started");
         if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)){
             Log.d(TAG, "onReceive:  Screen on");

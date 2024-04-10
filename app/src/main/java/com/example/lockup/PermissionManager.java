@@ -3,10 +3,13 @@ package com.example.lockup;
 import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.os.Build;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+@RequiresApi(api = Build.VERSION_CODES.Q)
 public class PermissionManager {
 
     private static final int REQUEST_CODE_PERMISSIONS = 101;
@@ -14,7 +17,12 @@ public class PermissionManager {
     private static final String[] REQUIRED_PERMISSIONS = {
             Manifest.permission.FOREGROUND_SERVICE,
             Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.ACCESS_FINE_LOCATION
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.INSTALL_PACKAGES,
+            Manifest.permission.DELETE_PACKAGES,
+            Manifest.permission.BROADCAST_PACKAGE_REMOVED,
+
+            Manifest.permission.ACCESS_BACKGROUND_LOCATION
     };
 
     public static void requestPermissions(Activity activity) {
@@ -51,5 +59,6 @@ public class PermissionManager {
 
     private static void startService(Activity activity) {
         // Start the ServiceBroadcastReceiver service here
+
     }
 }
